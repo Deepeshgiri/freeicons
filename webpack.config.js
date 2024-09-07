@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
-    library: 'myIconLibrary',
+    library: 'freeicons',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -21,7 +21,20 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: 'file-loader',
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              icon: true,
+            },
+          },
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },

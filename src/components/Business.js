@@ -1,9 +1,6 @@
 import React from 'react';
-import {business} from '../icons/business.svg';
-
-const BusinessIcon = (props) => {
-  return (
-  <img src={business} alt="business"  {...props} />
-  );
-};
+import { ReactComponent as BusinessSvg } from '../icons/FiBusiness.svg';
+const BusinessIcon = (props) => (
+  <BusinessSvg {...props} />
+);
 export default BusinessIcon;
